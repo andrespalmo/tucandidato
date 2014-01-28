@@ -11,5 +11,13 @@
     "superagent": "*",
     "handlebars": "*",
     "consolidate": "*"
+  },
+  "devDependencies": {
+    "gulp": "~3.5.0",
+    "gulp-rename": "~0.2.2",
+    "gulp-concat": "~2.1.7",
+    "gulp-uglify": "~0.2.0",
+    "gulp-jshint": "~1.3.4",
+    "gulp-sass": "~0.6.0"
   }
 }
