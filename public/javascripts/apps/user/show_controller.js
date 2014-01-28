@@ -2,13 +2,13 @@ ChooseCandidate.module('User.Show', function(User, ChooseCandidate, Backbone, Ma
 
   User.Controller = {
     showData: function() {
-      var model = ChooseCandidate.User.Login.Controller.getData();
-
+      var model = ChooseCandidate.request('user:entities');
+      console.log(model);
       var userView = new User.ShowUser({
         model: model
       });
 
-      ChooseCandidate.userRegion.show(userView);
+      ChooseCandidate.mainRegion.show(userView);
     }
   }
 });

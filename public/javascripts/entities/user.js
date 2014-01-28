@@ -2,9 +2,11 @@ ChooseCandidate.module('Entities', function(Entities, ContactManager,
 Backbone, Marionette, $, _) {
 
   Entities.User = Backbone.Model.extend({
-    
+
+    url: "user/",
+
     defaults: {
-      id: null,
+      user_id: null,
       third_party_id: null,
       name: null,
       email: null,
@@ -21,6 +23,7 @@ Backbone, Marionette, $, _) {
     },
 
     login: function(opts) {
+      console.log(this.toJSON());
       var _session = this;
 
       this._onALWAYS = function() {
@@ -50,7 +53,7 @@ Backbone, Marionette, $, _) {
 
         if (user['third_party_id']) {
           _session.set({
-            id: user['id'],
+            user_id: user['id'],
             third_party_id: user['third_party_id'],
             name: user['name'],
             email: user['email'],
@@ -58,7 +61,7 @@ Backbone, Marionette, $, _) {
           }, {
             silent: true
           });
-
+          //_session.save();
           callback(null, 'Everything is wonderful');
         } else {
           callback(true, 'third_party_id check failed!');

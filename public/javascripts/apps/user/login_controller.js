@@ -2,12 +2,14 @@ ChooseCandidate.module('User.Login', function(User, ChooseCandidate, Backbone, M
 
   User.Controller = {
 
-    launchData: function() {
-      var loginView = new User.GetData({ model: this.getData() });
+    launchData: function(callback) {
+      var model = ChooseCandidate.request('user:entities');
+      var loginView = new User.GetData({ model: model });
       ChooseCandidate.mainRegion.show(loginView);
 
       this.facebookInit();
-      ChooseCandidate.User.Show.Controller.showData();
+
+      return loginView;
     },
 
     facebookInit: function() {

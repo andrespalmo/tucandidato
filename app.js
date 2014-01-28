@@ -7,8 +7,10 @@ var express = require('express');
 var superagent = require('superagent');
 var consolidate = require('consolidate');
 var routes = require('./routes');
+var user = require('./routes/user')
 var http = require('http');
 var path = require('path');
+var mongoose = require('mongoose');
 
 var app = express();
 
@@ -34,16 +36,28 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-//app.get('/users', user.list);
+app.get('/user', user.index);
+app.post('/user', user.create);
 
+
+// API request for get the JSON
 app.get('/candidatos', function(request, response) {
   superagent.get("http://congresovisible.org/api/apis/candidatos/")
     .set('Accept', 'application/json')
     .end(function(error, res) {
-      if(error) next(error)
+      if(error) 
+        next(error)
       console.log(res.body.results.length);
       return response.json({data: res.body});
     });
+});
+
+//DB connection
+mongoose.connect('mongodb://localhost/Candidatos');
+mongoose.connection.on('open', function() {
+  console.log('conneected to Moongose');
+
+  //seeder.check();
 });
 
 app.listen(3001);
