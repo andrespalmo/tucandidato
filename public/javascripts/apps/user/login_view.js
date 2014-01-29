@@ -3,6 +3,8 @@ ChooseCandidate.module('User.Login', function(User, ChooseCandidate, Backbone, M
   User.GetData = Backbone.Marionette.ItemView.extend({
     template: 'login',
 
+    tagName: 'li',
+
     events: {
       'click .fb-register': 'login'
     },

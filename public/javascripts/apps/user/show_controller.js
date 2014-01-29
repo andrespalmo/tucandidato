@@ -10,5 +10,6 @@ ChooseCandidate.module('User.Show', function(User, ChooseCandidate, Backbone, Ma
 
       ChooseCandidate.mainRegion.show(userView);
     }
-  }
+  };
+  
 });

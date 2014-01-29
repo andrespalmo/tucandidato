@@ -2,7 +2,7 @@ ChooseCandidate.module('User', function(User, ChooseCandidate, Backbone, Marione
   
   User.Router = Marionette.AppRouter.extend({
     appRoutes: {
-
+      '': 'index',
       'user': 'userDetails'
     }
 
@@ -12,6 +12,10 @@ ChooseCandidate.module('User', function(User, ChooseCandidate, Backbone, Marione
     userDetails: function() {
       ChooseCandidate.User.Show.Controller.showData();
       console.log('entra a la ruta');
+    },
+
+    index: function() {
+      ChooseCandidate.User.Login.Controller.launchData();
     }
   };
 

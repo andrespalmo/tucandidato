@@ -3,13 +3,8 @@ ChooseCandidate.module('User.Login', function(User, ChooseCandidate, Backbone, M
   User.Controller = {
 
     launchData: function(callback) {
-      var model = ChooseCandidate.request('user:entities');
-      var loginView = new User.GetData({ model: model });
+      var loginView = new User.GetData();
       ChooseCandidate.mainRegion.show(loginView);
-
-      this.facebookInit();
-
-      return loginView;
     },
 
     facebookInit: function() {
