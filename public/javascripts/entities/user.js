@@ -49,14 +49,14 @@ Backbone, Marionette, $, _) {
       };
 
       this._saveSession = function(user, callback) {
-        console.log('session called user: ' + user['name']);
+        console.log('session called user: ' + user.name);
 
-        if (user['third_party_id']) {
+        if (user.third_party_id) {
           _session.set({
-            user_id: user['id'],
-            third_party_id: user['third_party_id'],
-            name: user['name'],
-            email: user['email'],
+            user_id: user.id,
+            third_party_id: user.third_party_id,
+            name: user.name,
+            email: user.email,
             status: '1'
           }, {
             silent: true
@@ -80,7 +80,7 @@ Backbone, Marionette, $, _) {
           });
           console.log(response);
           console.log(_session);
-          console.log('Fetching authResponse information')
+          console.log('Fetching authResponse information');
         }
 
       }, {scope: 'email'});
@@ -93,7 +93,7 @@ Backbone, Marionette, $, _) {
 
   initializeUser = function() {
     user = new Entities.User();
-  }
+  };
 
   var API = {
     getUserEntities: function() {

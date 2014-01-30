@@ -19,5 +19,5 @@ ChooseCandidate.module('User.Login', function(User, ChooseCandidate, Backbone, M
       return ChooseCandidate.request('user:entities');
     }
 
-  }
+  };
 });
