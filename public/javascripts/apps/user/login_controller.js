@@ -2,7 +2,7 @@ ChooseCandidate.module('User.Login', function(User, ChooseCandidate, Backbone, M
 
   User.Controller = {
 
-    launchData: function(callback) {
+    launchData: function() {
       var loginView = new User.GetData();
       ChooseCandidate.mainRegion.show(loginView);
     },

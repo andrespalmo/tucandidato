@@ -3,7 +3,9 @@ ChooseCandidate.module('Header', function(Header, ChooseCandidate, Backbone, Mar
   Header.Controller = {
     showHeader: function() {
       var headerView = new Header.ShowHeader();
+
       ChooseCandidate.headerRegion.show(headerView);
+
     }
   };
 

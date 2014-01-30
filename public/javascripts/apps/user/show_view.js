@@ -2,7 +2,7 @@ ChooseCandidate.module('User.Show', function(User, ChooseCandidate, Backbone, Ma
   
   User.ShowUser = Backbone.Marionette.ItemView.extend({
 
-    template: 'user',
+    template: 'user/user_details',
 
     initialize: function() {
       console.log(this.model);
