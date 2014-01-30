@@ -1,7 +1,7 @@
 ChooseCandidate.module('Header', function(Header, ChooseCandidate, Backbone, Marionette, $, _) {
   
   Header.ShowHeader = Backbone.Marionette.Layout.extend({
-    template: 'header',
+    template: 'header/header',
     tagName: 'section',
 
     regions: {
