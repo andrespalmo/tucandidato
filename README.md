@@ -3,12 +3,13 @@ tucandidato
 
 1. clone the repo
 
-2. run npm install for install all the dependencies for node
+2. run ```npm install``` for install all the dependencies for node
 
-3. go to public/ folder and run bower install
+3. go to ```public/``` folder and run ```bower install```
 
-4. back to main directory and run node app.js
+4. back to main ```/``` directory and run ```node app.js```
 
+We take the compass way (CSS of course).
 
 Notes:
 
@@ -16,9 +17,7 @@ To do:
 
 Front-end tasks
 
-- Move the templates into javascripts folder and their respective app.
 - Turn on Gulp.js for improve the workflow.
-- Take a decision about the CSS preprocessor (LESS? / SASS with COMPASS?)
 - Comment the current code
 
 
