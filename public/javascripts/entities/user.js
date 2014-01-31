@@ -61,7 +61,7 @@ Backbone, Marionette, $, _) {
           }, {
             silent: true
           });
-          //_session.save();
+          _session.save();
           callback(null, 'Everything is wonderful');
         } else {
           callback(true, 'third_party_id check failed!');
