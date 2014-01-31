@@ -6,8 +6,8 @@
 var express = require('express');
 var superagent = require('superagent');
 var consolidate = require('consolidate');
-var routes = require('./routes');
-var user = require('./routes/user');
+var controller = require('./controllers');
+var userController = require('./controllers/user');
 var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
@@ -35,9 +35,9 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
-app.get('/user', user.index);
-app.post('/user', user.create);
+app.get('/', controller.find);
+app.get('/user', userController.find);
+app.post('/user', userController.create);
 
 
 // API request for get the JSON
