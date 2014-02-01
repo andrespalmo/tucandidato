@@ -1,13 +1,11 @@
-var userModel = require("../models/userModel.js");
+var userModel = require("../models/userModel");
 
   module.exports = {
     find: function(req, res) {
-      var data = user.findUser(req);
-      res.json(data);
+      var data = userModel.findUser(req);
     },
 
     create: function(req, res) {
-      var data = user.createUser(req);
-      res.json(data);
+      var data = userModel.createUser(req.body);
     }
   };

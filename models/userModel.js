@@ -1,13 +1,12 @@
-var userSchema = require('./schemas/userSchema.js');
+var UserSchema = require('./schemas/userSchema.js');
 
-var UserModel = {
-
+module.exports = {
 	/**
 	 * Finds all users
 	 * @param {Request} req
 	 * @returns {User} user
 	 */
-	findUser: function(req) {
+	findUser: function(req, res) {
 		var userSchema = new UserSchema();
 		userSchema.find({}, function(err, user){
 			console.log(req);
@@ -22,7 +21,7 @@ var UserModel = {
 	 * @returns {User} user
 	 */
 	createUser: function(req) {
-		var userSchema = new UserSchema(req.body);
+		var userSchema = new UserSchema(req);
 		userSchema.save(function(err, user){
 			if(err){
 				user = {};
