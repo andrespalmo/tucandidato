@@ -26,7 +26,7 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
-app.use(express.cookieParser('your secret here'));
+app.use(express.cookieParser('7uc4nd1d470'));
 app.use(express.session());
 app.use(app.router);
 
@@ -36,8 +36,8 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', controller.index);
-app.get('/user', userController.getUser);
-app.post('/user', userController.createUser);
+app.get('/user', userController.getAllUsers);
+app.post('/user', userController.logIn);
 
 
 // API request for get the JSON

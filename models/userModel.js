@@ -7,7 +7,7 @@ module.exports = {
 	 * @param {Request} req
 	 * @returns {User} user
 	 */
-	getUser: function(req, callback) {
+	getAllUsers: function(req, callback) {
 		UserSchema.find({}, function(err, user){
 			callback(user);
 		});
@@ -28,6 +28,15 @@ module.exports = {
 			}else{
 				callback(user);
 			}
+		});
+	},
+
+	getUserById: function(req,callback){
+		var userInfo = req.body;
+		var userId = userInfo.user_id
+		
+		UserSchema.find({ user_id:userId }, function(err,user){
+			callback(user);
 		});
 	}
 
