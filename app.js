@@ -36,8 +36,8 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', controller.index);
-app.get('/user', userController.find);
-app.post('/user', userController.create);
+app.get('/user', userController.getUser);
+app.post('/user', userController.createUser);
 
 
 // API request for get the JSON

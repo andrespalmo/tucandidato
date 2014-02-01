@@ -1,16 +1,15 @@
 var UserSchema = require('./schemas/userSchema.js');
 
 module.exports = {
+
 	/**
 	 * Finds all users
 	 * @param {Request} req
 	 * @returns {User} user
 	 */
-	findUser: function(req, res) {
-		var userSchema = new UserSchema();
-		userSchema.find({}, function(err, user){
-			console.log(req);
-			return user;
+	getUser: function(req, callback) {
+		UserSchema.find({}, function(err, user){
+			callback(user);
 		});
 	},
 
@@ -20,15 +19,14 @@ module.exports = {
 	 * @param {Request} req
 	 * @returns {User} user
 	 */
-	createUser: function(req) {
-		var userSchema = new UserSchema(req);
-		userSchema.save(function(err, user){
+	createUser: function(req,callback) {
+		var newUser = new UserSchema(req.body);
+		newUser.save(function(err, user){
 			if(err){
-				user = {};
-				return user;
+				var data = {};
+				callback(data);
 			}else{
-				console.log(user);
-				return user;
+				callback(user);
 			}
 		});
 	}
