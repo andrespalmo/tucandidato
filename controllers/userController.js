@@ -18,7 +18,7 @@ module.exports = {
   logIn: function(req, res){
     userModel.getUserById(req, function(data){
       if(utilities.isEmpty(data)){
-        user = userModel.createUser(req, function(data){
+        userModel.createUser(req, function(data){
           req.session.userId = data.user_id;
           res.json(data);
         });

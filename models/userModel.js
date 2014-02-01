@@ -31,6 +31,11 @@ module.exports = {
 		});
 	},
 
+	/**
+	 * Finds an user by facebook id
+	 * @param {Request} req
+	 * @returns {User} user
+	 */
 	getUserById: function(req,callback){
 		var userInfo = req.body;
 		var userId = userInfo.user_id
