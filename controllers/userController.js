@@ -54,12 +54,14 @@ module.exports = {
     var userInfo = req.body;
     var userId = userInfo.user_id;
     userModel.getUserById(userId, function(data){
-      if(utilities.isEmpty(data)){
+      if(data === null){
+        console.log("Datos nulos");
         userModel.createUser(req, function(data){
           req.session.userId = data.user_id;
           res.json(data);
         });
       }else{
+        console.log("Datos no nulos");
         req.session.userId = data.user_id;
         res.json(data);
       }
