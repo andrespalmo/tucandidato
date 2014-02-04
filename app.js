@@ -36,7 +36,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', controller.index);
-app.get('/user', userController.getAllUsers);
+app.get('/user', userController.getUserById);
 app.post('/user', userController.logIn);
 
 
@@ -45,9 +45,9 @@ app.get('/candidatos', function(request, response) {
   superagent.get("http://congresovisible.org/api/apis/candidatos/")
     .set('Accept', 'application/json')
     .end(function(error, res) {
-      if(error) 
-        next(error)
-      console.log(res.body.results.length);
+      if(error)
+        next(error);
+        console.log(res.body.results.length);
       return response.json({data: res.body});
     });
 });

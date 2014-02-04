@@ -2,10 +2,11 @@ var UserSchema = require('./schemas/userSchema.js');
 
 module.exports = {
 
+
 	/**
 	 * Finds all users
 	 * @param {Request} req
-	 * @returns {User} user
+	 * @returns {Object} user
 	 */
 	getAllUsers: function(req, callback) {
 		UserSchema.find({}, function(err, user){
@@ -17,7 +18,7 @@ module.exports = {
 	/**
 	 * Creates an user
 	 * @param {Request} req
-	 * @returns {User} user
+	 * @returns {Object} user
 	 */
 	createUser: function(req,callback) {
 		var newUser = new UserSchema(req.body);
@@ -31,16 +32,15 @@ module.exports = {
 		});
 	},
 
+
 	/**
 	 * Finds an user by facebook id
 	 * @param {Request} req
-	 * @returns {User} user
+	 * @returns {Object} user
 	 */
-	getUserById: function(req,callback){
-		var userInfo = req.body;
-		var userId = userInfo.user_id
+	getUserById: function(userId,callback){
 		
-		UserSchema.find({ user_id:userId }, function(err,user){
+		UserSchema.findOne({ user_id:userId }, function(err,user){
 			callback(user);
 		});
 	}
