@@ -36,7 +36,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', controller.index);
-app.get('/user', userController.getUserById);
+app.get('/user', userController.validateSession, userController.getUserById);
 app.post('/user', userController.logIn);
 
 

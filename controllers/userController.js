@@ -44,7 +44,7 @@ module.exports = {
 
 
   /**
-   * Calls the userControler to find the logged in user
+   * Calls the userControler to find the user
    * if the user exists it saves the userId on a session variable
    * otherwise it creates the user.
    * @param {Request} req
@@ -64,5 +64,23 @@ module.exports = {
         res.json(data);
       }
     });
+  },
+
+
+  /**
+   * Sees if the user is logged in, validating
+   * the session variable 'userId'.
+   * @param {Request} req
+   * @param {Response} res
+   * @param {Object} next
+   */
+  validateSession: function(req, res, next){
+    var userId = req.session.userId;
+    if(typeof userId !== 'undefined'){
+      next();
+    }else{
+      res.redirect("/");
+    }
   }
+
 };
